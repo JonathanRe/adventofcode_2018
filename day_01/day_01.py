@@ -3,19 +3,19 @@ def main():
     variations  = []
     match_found = False
 
-    # while not match_found:
     with open("input.txt") as f:
-        for line in f:
-            change = int(line.strip())
-            frequency += change
-            variations.append(frequency)
+        while not match_found:
+            for line in f:
+                change = int(line.strip())
+                frequency += change
+                # print(frequency)
+                if frequency not in variations:
+                    variations.append(frequency)
+                else:
+                    match_found = True
+                    print("Answer to part 2: " + str(frequency))
+                    break
             print(frequency)
-            # if frequency not in variations:
-            #     variations.append(frequency)
-            # else:
-            #     match_found = True
-            #     print("Answer to part 2: " + str(frequency))
-            #     break
 
     print("Answer to part 1: " + str(frequency))
 
